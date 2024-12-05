@@ -22,7 +22,8 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
 
   const updateTodo = (title, id, completed, priority) => {
     const newTodo = todos.map((todo) =>
-      todo.id === id ? { title, id, completed, priority } : todo
+      todo.id === id  ? { title, id, completed, priority, timestamp: todo.timestamp } // Use the existing timestamp
+    : todo
     );
     setTodos(sortTodos(newTodo));
     setEditTodo("");
